@@ -7,33 +7,33 @@ namespace CS321_W4D2_ExerciseLogAPI.ApiModels
     public static class UserMappingExtenstions
     {
 
-        public static UserModel ToApiModel(this User User)
+        public static UserModel ToApiModel(this User user)
         {
             return new UserModel
             {
-                Id = User.Id,
+                Id = user.Id,
                 // TODO: fill in property mappings
 
             };
         }
 
-        public static User ToDomainModel(this UserModel UserModel)
+        public static User ToDomainModel(this UserModel userModel)
         {
             return new User
             {
-                Id = UserModel.Id,
+                Id = userModel.Id,
                 // TODO: fill in property mappings
             };
         }
 
-        public static IEnumerable<UserModel> ToApiModels(this IEnumerable<User> Users)
+        public static IEnumerable<UserModel> ToApiModels(this IEnumerable<User> users)
         {
-            return Users.Select(a => a.ToApiModel());
+            return users.Select(a => a.ToApiModel());
         }
 
-        public static IEnumerable<User> ToDomainModels(this IEnumerable<UserModel> UserModels)
+        public static IEnumerable<User> ToDomainModels(this IEnumerable<UserModel> userModels)
         {
-            return UserModels.Select(a => a.ToDomainModel());
+            return userModels.Select(a => a.ToDomainModel());
         }
     }
 }
