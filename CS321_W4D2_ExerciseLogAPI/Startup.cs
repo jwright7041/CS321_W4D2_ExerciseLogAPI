@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CS321_W4D2_ExerciseLogAPI.Core.Services;
 using CS321_W4D2_ExerciseLogAPI.Infrastructure.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,7 +32,13 @@ namespace CS321_W4D2_ExerciseLogAPI
             // TODO: AddDbContext
             services.AddDbContext<AppDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             // TODO: register repositories for injection
+            services.AddScoped<IActivityRepository, ActivityRepository>();
+            services.AddScoped<IActivityTypeRepository, ActivityTypeRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
             // TODO: register services for injection
+            services.AddScoped<IActivityService, ActivityService>();
+            services.AddScoped<IActivityTypeService, ActivityTypeService>();
+            services.AddScoped<IUserService, UserService>();
             services.AddMvc();
         }
 

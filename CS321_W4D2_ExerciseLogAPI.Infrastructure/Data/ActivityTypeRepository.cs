@@ -7,7 +7,7 @@ using CS321_W4D2_ExerciseLogAPI.Core.Services;
 
 namespace CS321_W4D2_ExerciseLogAPI.Infrastructure.Data
 {
-    class ActivityTypeRepository : IActivityTypeRepository
+    public class ActivityTypeRepository : IActivityTypeRepository
     {
         private readonly AppDbContext _appDbContext;
 

@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using CS321_W4D2_ExerciseLogAPI.Core.Models;
 using CS321_W4D2_ExerciseLogAPI.Core.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace CS321_W4D2_ExerciseLogAPI.Infrastructure.Data
 {
-    class ActivityRepository : IActivityRepository
+    public class ActivityRepository : IActivityRepository
     {
         private readonly AppDbContext _appDbContext;
 
@@ -26,12 +27,18 @@ namespace CS321_W4D2_ExerciseLogAPI.Infrastructure.Data
 
         public Activity Get(int id)
         {
-            return _appDbContext.Activities.Find(id);
+            return _appDbContext.Activities
+                .Include(a => a.ActivityType)
+                .Include(a => a.User).FirstOrDefault(a => a.Id == id);
+                
         }
 
         public IEnumerable<Activity> GetAll()
         {
-            return _appDbContext.Activities.ToList();
+            return _appDbContext.Activities
+                .Include(a => a.User)
+                .Include(a => a.ActivityType)
+                .ToList();
         }
 
         public void Remove(Activity activity)
