@@ -7,6 +7,6 @@ namespace CS321_W4D2_ExerciseLogAPI.ApiModels
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<UserModel> Activities { get; set; }
+        public ICollection<ActivityModel> Activities { get; set; }
     }
 }

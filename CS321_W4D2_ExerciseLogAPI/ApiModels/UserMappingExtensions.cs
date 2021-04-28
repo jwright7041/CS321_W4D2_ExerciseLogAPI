@@ -13,8 +13,8 @@ namespace CS321_W4D2_ExerciseLogAPI.ApiModels
             return new UserModel
             {
                 Id = user.Id,
-                Name = user.Name
-
+                Name = user.Name,
+                Activities = user.Activities.ToApiModels().ToList()
             };
         }
 
