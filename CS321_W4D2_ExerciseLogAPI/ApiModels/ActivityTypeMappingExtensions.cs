@@ -13,7 +13,8 @@ namespace CS321_W4D2_ExerciseLogAPI.ApiModels
             return new ActivityTypeModel
             {
                 Id = activityType.Id,
-                // TODO: fill in property mappings
+                Name = activityType.Name,
+                RecordType = activityType.RecordType
             };
         }
 
@@ -22,7 +23,8 @@ namespace CS321_W4D2_ExerciseLogAPI.ApiModels
             return new ActivityType
             {
                 Id = activityTypeModel.Id,
-                // TODO: fill in property mappings
+                Name = activityTypeModel.Name,
+                RecordType = activityTypeModel.RecordType
             };
         }
 

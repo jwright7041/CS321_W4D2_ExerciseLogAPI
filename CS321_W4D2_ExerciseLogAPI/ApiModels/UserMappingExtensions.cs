@@ -13,7 +13,7 @@ namespace CS321_W4D2_ExerciseLogAPI.ApiModels
             return new UserModel
             {
                 Id = user.Id,
-                // TODO: fill in property mappings
+                Name = user.Name
 
             };
         }
@@ -23,7 +23,7 @@ namespace CS321_W4D2_ExerciseLogAPI.ApiModels
             return new User
             {
                 Id = userModel.Id,
-                // TODO: fill in property mappings
+                Name = userModel.Name
             };
         }
 
@@ -36,5 +36,12 @@ namespace CS321_W4D2_ExerciseLogAPI.ApiModels
         {
             return userModels.Select(a => a.ToDomainModel());
         }
+
+        //I don't know what this is, so i'm commenting it out to be safe
+        /*
+        internal User ToDomainModel()
+        {
+            throw new NotImplementedException();
+        } */
     }
 }
